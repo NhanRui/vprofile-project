@@ -49,7 +49,7 @@ pipeline {
                 scannerHome = tool "${SONARSCANNER}"
             }
             steps {
-                withSonarQubeEnv('My SonarQube Server') { // If you have configured more than one global server connection, you can specify its name
+                withSonarQubeEnv("${SONARSERVER}") { // If you have configured more than one global server connection, you can specify its name
                     sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
                     -Dsonar.projectName=vprofile \
                     -Dsonar.projectVersion=1.0 \
